@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+/* ---------- NEXUS CYBER GRID design tokens (single source of truth) ---------- */
+:root {
+  /* light */
+  --bg: #f5f7fb;
+  --sidebar: #ffffff;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --primary: #2563eb;
+  --cyan: #0891b2;
+  --purple: #7c3aed;
+  --success: #16a34a;
+  --warning: #d97706;
+  --critical: #dc2626;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --subtle: #eef2f8;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.04);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --sidebar: #101010;
+  --card: #161616;
+  --border: #2b2b2b;
+  --primary: #3b82f6;
+  --cyan: #22d3ee;
+  --purple: #a78bfa;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --critical: #ef4444;
+  --fg: #f8fafc;
+  --muted: #a1a1aa;
+  --subtle: #0f0f0f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.25);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-app: var(--bg);
+  --color-sidebar: var(--sidebar);
+  --color-card: var(--card);
+  --color-line: var(--border);
+  --color-primary: var(--primary);
+  --color-cyan: var(--cyan);
+  --color-purple: var(--purple);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-critical: var(--critical);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --shadow-card: var(--shadow);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.003em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+th {
+  font-weight: 500;
+}
+
+* {
+  border-color: var(--border);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+@keyframes skeleton {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.skeleton {
+  background: var(--border);
+  border-radius: 8px;
+  animation: skeleton 1.4s ease-in-out infinite;
+}
+
+@keyframes ping-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+.threat-ring {
+  animation: ping-ring 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  .threat-ring {
+    animation: none;
+  }
+}
+
+/* ---------- React Flow theming ---------- */
+.react-flow {
+  --xy-background-color: transparent;
+  --xy-attribution-background-color: transparent;
+}
+.react-flow__controls {
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: var(--card);
+  color: var(--fg);
+  border-bottom: 1px solid var(--border);
+  fill: var(--fg);
+}
+.react-flow__controls-button:hover {
+  background: var(--subtle);
+}
+.react-flow__edge-text {
+  fill: var(--muted);
+}
+.react-flow__handle {
+  opacity: 0;
+  pointer-events: none;
+}
