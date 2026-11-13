@@ -1,5 +1,4 @@
-# GRID SHIELD AI — BESCOM POWER HACK 2026 · Team Vortex
-**Theme 2: Cyber Secure Smart Grid — Detect the attack. Locate the threat. Protect the grid.**
+# GRID SHIELD 
 
 An AI-powered smart-grid cybersecurity platform that runs a real AC power-flow simulation of the **IEEE 14-bus** network, lets you launch **simulated** cyberattacks, detects them with a hybrid of residual analysis and machine learning, localizes the compromised buses with graph reasoning, and stores incidents in a relational database.
 
